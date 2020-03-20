@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <context-param>
+<param-name>source.user</param-name>
+<param-value>db</param-value>
+  </context-param>
+  <context-param>
+<param-name>source.task</param-name>
+<param-value>db</param-value>
+  </context-param>
+  <context-param>
+<param-name>db.name</param-name>
+<param-value>web</param-value>
+  </context-param>
+  <context-param>
+<param-name>db.user</param-name>
+<param-value>epamlab</param-value>
+  </context-param>
+  <context-param>
+<param-name>db.password</param-name>
+<param-value>1111</param-value>
+  </context-param>
+<display-name>javahtml</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+</web-app>

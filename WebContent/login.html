@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="css.css" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Login</title>
+</head>
+<script src="scripts.js"></script>
+<body onLoad="checkError()">
+	<header>
+		User: guest 
+		<a href="login.html">Login</a> 
+		<a href="register.html">Register</a>
+	</header>
+	<main>
+		<h3>Login</h3>
+		<form action="login" method="POST" name="login">
+			<table>
+				<tr>
+					<th>Account:</th>
+					<td>
+						<input type="text" name="account">
+					</td>
+				</tr>
+				<tr>
+					<th>Password:</th>
+					<td>
+						<input type="password" name="password">
+					</td>
+				</tr>
+			</table>
+		</form>
+		<p id="errorText" style="color: red;"></p>
+		<p id="error" style="color: red;"></p>		
+		<a href="javascript:login()">Login</a>
+	</main>
+	<footer> 
+		Developed by Pavel Lukyanenko and Andrei Biareshchanka
+	</footer>
+</body>
+</html>

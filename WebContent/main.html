@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="css.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="scripts.js"></script>
+<script>
+$(function() {
+	$("#datepicker").datepicker();
+});
+</script>
+<title>Main</title>
+</head>
+<body onLoad="startMain()">
+	<header>
+		User: <span id="user"></span> <a href="javascript:logout()">Logout</a>
+		<form name="logout" action="logout" method="POST"></form>
+	</header>
+	<main>
+		<form name="deleteFile" action="deleteFile" method="POST">
+			<input name="idTask" type="hidden"> <input name="view"
+				type="hidden">
+		</form>
+
+		<div id="topLinks"></div>
+		<h3 id="viewTitle"></h3>
+
+		<div id="tasksList">
+			<div id='tasks-empty'>
+				<p>
+					No tasks in <span id="currentView"></span> view
+				</p>
+				<div class="addTaskLink"></div>
+			</div>
+			<div id="tasks-not-empty">
+				<form action="main" method="POST" name="tasks">
+					<input type="hidden" name="operation"> <input type="hidden"
+						name="view">
+					<table>
+						<thead>
+							<tr>
+								<th><input type="checkbox" onClick="toggle(this)"></th>
+								<th>Task</th>
+								<th id="tasksTableDate">Date</th>
+								<th>File</th>
+							</tr>
+						</thead>
+						<tbody id="tasks-list">
+						</tbody>
+					</table>
+				</form>
+				<p id="errorText" style="color: red;"></p>
+				<span class="addTaskLink"></span><span id="bottomLinks"></span>
+			</div>
+		</div>
+		<div id="upload">
+			<h3>Upload File To Task</h3>
+			<table>
+				<tr>
+					<th>Date:</th>
+					<td id="uploadDate"></td>
+				</tr>
+				<tr>
+					<th>Text:</th>
+					<td id="uploadText"></td>
+				</tr>
+				<tr>
+					<th>File:</th>
+					<td>
+						<form action="upload" method="POST" name="uploadFile"
+							enctype="multipart/form-data">
+							<input name="idTask" type="hidden"> <input
+								name="view" type="hidden"> <input
+								type="file" name="file" size="50">
+						</form>
+					</td>
+				</tr>
+			</table>
+			<p id="errorFile" style="color: red;"></p>
+			<a href="javascript:sendFile()">Upload File</a> 
+			<a href="javascript:cancelOperation()">Cancel</a>
+		</div>
+		<div id="addTask">
+			<form action="add" method="POST" name="addTask"
+				enctype="multipart/form-data">
+				<input type="hidden" name="view">
+				<table>
+					<tr>
+						<th>Text:</th>
+						<td><textarea name="text"></textarea></td>
+					</tr>
+					<tr>
+						<th>Date:</th>
+						<td><input type="text" id="datepicker" name="date">
+						</td>
+					</tr>
+					<tr>
+						<th>File:</th>
+						<td><input type="file" name="file" size="50"></td>
+					</tr>
+				</table>
+			</form>
+			<p id="errorAddTask" style="color: red;"></p>
+			<a href="javascript:sendTask()">Add Task</a>
+			<a href="javascript:cancelOperation()">Cancel</a>			
+		</div>
+		<div id="errorMessage"></div>
+	</main>
+	<footer> Developed by Pavel Lukyanenko and Andrei Biareshchanka</footer>
+</body>
+</html>
